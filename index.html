@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Pousada em Santo Amaro do Maranhão, nos Lençóis Maranhenses. Conforto, tranquilidade e experiências inesquecíveis perto das lagoas. Conheça nossas acomodações e faça sua reserva.">
     <meta name="author" content="Mayza Costa Barbosa">
     <title>Pousada Recanto Coelhos</title>
@@ -14,6 +14,10 @@
     
     <!--STYLESHEET-->
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/mediaq.css">
+
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 
 <body>
@@ -171,38 +175,51 @@
                     <p class="section-label">Localização</p>
                     <h2>Santo Amaro, Maranhão</h2>
                     <p>Venha conhecer um dos lugares mais encantadores dos Lençóis Maranhenses. A Pousada Recanto Coelhos está pronta para receber você.</p>
-                    <a href="#" class="local-btn" target="_blank" rel="noopener noreferrer">Como Chegar</a>
+                    <a href="https://www.openstreetmap.org/" class="local-btn" target="_blank" rel="noopener noreferrer">Como Chegar</a>
                 </div>
 
-                <div class="local-api"><!--Aqui vai a localização usando api--></div>
+                <div class="local-api" id="map"><!--Aqui vai a localização usando api--></div>
             </div>
         </section>
 
-        <!--CONTEÚDO LOCALIZAÇÃO-->
+        <!--CONTEÚDO CONTATO-->
         <section class="contato" id="contato">
-            <div class="contact-content"> 
+            <div class="contact-content">
                 <div class="contact-text"> 
-                    <p class="section-label">Contato</p> 
-                    <h2>Vamos planejar sua estadia?</h2> 
-                    <p>Entre em contato conosco para consultar disponibilidade, valores e informações sobre sua hospedagem.</p> 
-                </div> 
+                    <p class="section-label">Contato</p>
+                    <h2>Entre em contato</h2>                    
+                    <p class="contact-description">Estamos prontos para te receber! Fale conosco pelo WhatsApp ou venha nos visitar.</p>
+                </div>
                 
                 <div class="contact-info">
                     <div class="contact-item">
-                        <h3>WhatsApp</h3> 
-                        <a href="https://wa.me/SEUNUMERO">Fale conosco pelo WhatsApp</a> 
-                    </div> 
+                        <div class="contact-icon">
+                            <img src="images/whatsapp.png" alt="WhatsApp">
+                        </div>
+
+                        <div class="contact-item-text">
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/5598991606683" target="_blank" rel="noopener noreferrer"> (98) 99999-9999</a>
+                        </div>
+                    </div>
                     
-                    <div class="contact-item"> 
-                        <h3>E-mail</h3> 
-                        <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
-                    </div> 
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                        <img src="images/map.png" alt="Localização">
+                    </div>
                     
-                    <div class="contact-item"> 
-                        <h3>Endereço</h3> 
-                        <p>Santo Amaro — MA</p>
-                    </div> 
-                </div> 
+                    <div class="contact-item-text">
+                        <h3>Endereço</h3>
+                        <p>
+                            Rua Boa Esperança, Bairro Olho d'Água,
+                            Santo Amaro - MA, Brasil
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-image">
+                <img src="images/lencois-maranhenses.webp" alt="Lençóis Maranhenses" loading="lazy">
             </div>
         </section>
 
@@ -211,8 +228,9 @@
             <div class="action-content">
                 <h2 class="action">Pronto para viver essa experiência?</h2>
                 <p>Entre em contato com o nosso time e faça sua reserva</p>
-                <button class="call-btn" type="button">Reserve agora</button>
             </div>
+
+            <a class="call-btn" href="#contato">Reserve agora</a>
         </section>
     </main>
 
@@ -221,21 +239,17 @@
         <div class="footer-content"> 
             <!-- LOGO --> 
             <a href="#inicio" class="footer-logo"> 
-                <img src="img/logo.png" alt="Pousada Recanto Coelhos"> 
+                <img src="images/LOGO-POUSADA-COELHO.webp" alt="Pousada Recanto Coelhos"> 
             </a> 
             
             <!-- REDES SOCIAIS --> 
             <div class="social-media"> 
-                <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"> 
-                    <img src="img/icons/instagram.svg" alt="Instagram"> 
+                <a href="https://www.instagram.com/recantocoelhos/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"> 
+                    <img src="images/instagram.png" alt="Instagram"> 
                 </a> 
-                
-                <a href="#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"> 
-                    <img src="img/icons/facebook.svg" alt="Facebook"> 
-                </a>
 
-                <a href="#" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"> 
-                    <img src="img/icons/whatsapp.svg" alt="WhatsApp"> 
+                <a href="https://wa.me/5598991606683" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"> 
+                    <img src="images/whatsapp.png" alt="WhatsApp"> 
                 </a> 
             </div> 
         </div> 
@@ -245,5 +259,7 @@
             <p>© 2026 Pousada Recanto Coelhos. Todos os direitos reservados.</p> 
         </div>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script/localizacao.js"></script>
 </body>
 </html>
